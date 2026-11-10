@@ -218,6 +218,8 @@ def execution_metrics_collector(
         the_env = dict(os.environ)
         if "LD_LIBRARY_PATH_ORIG" in the_env:
             the_env["LD_LIBRARY_PATH"] = the_env.pop("LD_LIBRARY_PATH_ORIG")
+        elif "LD_LIBRARY_PATH" in the_env:
+            del the_env["LD_LIBRARY_PATH"]
         for env_name in (
             "_PYI_ARCHIVE_FILE",
             "_PYI_PARENT_PROCESS_LEVEL",
